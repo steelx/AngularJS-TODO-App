@@ -16,5 +16,12 @@ todoApp.controller('AppCtrl', function($scope) {
               return item.done ? count : count + 1;
           }, 0);
         };
+
+        //add items function
+        $scope.add = function(newItem) {
+            var item = {text: newItem.text, done: false};
+            items.push(item);
+            newItem.text = '';
+        };
     }
 );

@@ -25,13 +25,14 @@
         <h1>First TODO App - Ajinkya</h1>
 
         <div class="todolist" ng-controller="AppCtrl">
-            <p>Tasks remaining {{remaining()}} out of {{items.length}}</p>
+            <p>Tasks remaining {{remaining()}} out of {{items.length}}. [<a href="#" ng-click="archive()">Archive</a>]</p>
             <ul>
                 <li ng-repeat="item in items"><input type="checkbox" ng-model="item.done">{{item.text}} || {{item.done}}</li>
             </ul>
-            <form action="">
-                <input type="text" name="item">
-                <button type="submit">Add Item</button>
+            <form action="" name="taskform">
+                <input type="text" ng-model="newItem.text" ng-maxlength="12" name="tasktext">
+                <span ng-show="taskform.tasktext.$error.maxlength">Error! Message too long.</span>
+                <button type="submit" ng-click="add(newItem)" ng-disabled="!newItem.text">Add Item</button>
             </form>
         </div>
 

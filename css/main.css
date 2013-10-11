@@ -102,6 +102,9 @@ textarea {
     margin: 5% 20%;
 }
 
+input.ng-invalid {
+    border: 2px solid crimson;
+}
 
 
 
